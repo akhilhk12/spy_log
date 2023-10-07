@@ -1,0 +1,9 @@
+C:\Users\hrakh\source\repos\key_logger\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\hrakh\source\repos\key_logger\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\hrakh\source\repos\key_logger\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\hrakh\source\repos\key_logger\WindowsFormsApp1\obj\Debug\KeyLogger.csproj.AssemblyReference.cache
+C:\Users\hrakh\source\repos\key_logger\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\hrakh\source\repos\key_logger\WindowsFormsApp1\obj\Debug\KeyLogger.csproj.GenerateResource.cache
+C:\Users\hrakh\source\repos\key_logger\WindowsFormsApp1\obj\Debug\KeyLogger.csproj.CoreCompileInputs.cache
+C:\Users\hrakh\source\repos\key_logger\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\hrakh\source\repos\key_logger\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
